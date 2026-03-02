@@ -14,31 +14,50 @@ function PostForm({ onSubmit, onBack, editPost }) {
   }
 
   return (
-    <div>
-      <button onClick={onBack}>← 목록으로</button>
-      <h2>{editPost ? '글 수정' : '글 작성'}</h2>
-      <div>
-        <input
-          placeholder="제목"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+    <div className="card">
+      <div className="post-form-header">
+        <button className="btn btn-secondary" onClick={onBack}>
+          ← 목록으로
+        </button>
+        <span className="post-form-title">{editPost ? '글 수정' : '새 글 작성'}</span>
       </div>
-      <div>
-        <input
-          placeholder="작성자"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
+      <div className="post-form-body">
+        <div className="form-group">
+          <label className="form-label">제목</label>
+          <input
+            className="form-control"
+            placeholder="제목을 입력하세요"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label className="form-label">작성자</label>
+          <input
+            className="form-control"
+            placeholder="작성자 이름을 입력하세요"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label className="form-label">내용</label>
+          <textarea
+            className="form-control"
+            placeholder="내용을 입력하세요"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+        </div>
       </div>
-      <div>
-        <textarea
-          placeholder="내용"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
+      <div className="form-actions">
+        <button className="btn btn-secondary" onClick={onBack}>
+          취소
+        </button>
+        <button className="btn btn-primary" onClick={handleSubmit}>
+          저장
+        </button>
       </div>
-      <button onClick={handleSubmit}>저장</button>
     </div>
   )
 }

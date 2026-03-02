@@ -58,31 +58,35 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>게시판</h1>
-      {view === 'list' && (
-        <PostList
-          posts={posts}
-          onSelect={(post) => { setSelectedPost(post); setView('detail') }}
-          onWrite={() => { setEditPost(null); setView('write') }}
-          onDelete={handleDelete}
-        />
-      )}
-      {view === 'detail' && (
-        <PostDetail
-          post={selectedPost}
-          onBack={() => setView('list')}
-          onDelete={handleDelete}
-          onEdit={handleEdit}
-        />
-      )}
-      {view === 'write' && (
-        <PostForm
-          onSubmit={handleSubmit}
-          onBack={() => setView('list')}
-          editPost={editPost}
-        />
-      )}
+    <div className="app">
+      <header className="app-header">
+        <h1>📋 게시판</h1>
+      </header>
+      <main className="app-main">
+        {view === 'list' && (
+          <PostList
+            posts={posts}
+            onSelect={(post) => { setSelectedPost(post); setView('detail') }}
+            onWrite={() => { setEditPost(null); setView('write') }}
+            onDelete={handleDelete}
+          />
+        )}
+        {view === 'detail' && (
+          <PostDetail
+            post={selectedPost}
+            onBack={() => setView('list')}
+            onDelete={handleDelete}
+            onEdit={handleEdit}
+          />
+        )}
+        {view === 'write' && (
+          <PostForm
+            onSubmit={handleSubmit}
+            onBack={() => setView('list')}
+            editPost={editPost}
+          />
+        )}
+      </main>
     </div>
   )
 }
