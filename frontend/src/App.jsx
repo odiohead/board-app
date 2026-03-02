@@ -3,7 +3,7 @@ import PostList from './components/PostList'
 import PostDetail from './components/PostDetail'
 import PostForm from './components/PostForm'
 
-const API_URL = 'http://127.0.0.1:8000'
+const API_URL = 'http://3.34.53.69:8000'
 
 function App() {
   const [posts, setPosts] = useState([])
